@@ -1,19 +1,28 @@
+/* New Color Palette:
+  Background: #fdf0d5 (A warm, light beige)
+  Game Boxes: #ffffff (Clean white)
+  X's and O's: #d90429 (A strong, fun red)
+  Buttons: #0077b6 (A friendly, clear blue)
+*/
+
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Added for more predictable sizing */
 }
 
-body{
-    background-color: #548687;
+body {
+    background-color: #fdf0d5; /* Lighter, warmer background */
     text-align: center;
+    font-family: "Comic Sans MS", "Comic Sans", cursive; /* As requested! */
 }
-.container{
+
+.container {
     height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 
 .game {
     height: 60vmin;
@@ -25,44 +34,69 @@ body{
     gap: 1.5vmin;
 }
 
-.box{
+.box {
     height: 18vmin;
     width: 18vmin;
     border-radius: 1rem;
     border: none;
-    box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* A softer, deeper shadow */
     font-size: 8vmin;
-    color: #b0413e;
-    background-color: #ffffc7;
+    font-weight: bold;
+    color: #d90429; /* A more vibrant red for X and O */
+    background-color: #ffffff; /* Clean white boxes */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out; /* Smooth transition for clicks/hovers */
 }
 
-#reset-btn{
-    padding: 1rem;
+.box:hover {
+    transform: scale(1.05); /* Makes boxes "pop" on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for boxes after they've been clicked */
+.box:disabled {
+    background-color: #f5f5f5; /* Slightly off-white to show it's used */
+    color: #d90429; /* Keep the red color strong */
+    opacity: 0.9; /* Make it slightly faded but still very readable */
+}
+
+/* Grouped button styles */
+#reset-btn,
+#new-btn {
+    padding: 1rem 1.5rem; /* A bit more horizontal padding */
     font-size: 1.25rem;
-    background-color: #191913;
+    background-color: #0077b6; /* A friendly, "call to action" blue */
     color: #fff;
     border-radius: 1rem;
     border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 0.5rem; /* Adds a little space between buttons */
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
-#new-btn{
-        padding: 1rem;
-    font-size: 1.25rem;
-    background-color: #191913;
-    color: #fff;
-    border-radius: 1rem;
-    border: none;
+#reset-btn:hover,
+#new-btn:hover {
+    background-color: #005a8d; /* A darker blue on hover */
+    transform: translateY(-2px); /* A slight "lift" effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-#msg{
-    color: #ffffc7;
-    font-size: 8vmin;
-}
-
-.msg-container{
+.msg-container {
     height: 40vmin;
+    /* Added flex to perfectly center the winner message */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.hide{
+#msg {
+    color: #d90429; /* Match the X/O color for consistency */
+    font-size: 8vmin;
+    font-weight: bold; /* Make the winner message stand out */
+}
+
+.hide {
     display: none;
 }
